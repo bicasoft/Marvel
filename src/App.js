@@ -68,7 +68,25 @@ class App extends Component{
     else
       offSet++;
 
-    url_string.replace("?Id=", "");
+    console.log("*****offSet*****");
+    console.log(offSet);
+  
+    window.location.href = "https://capitaluizamarvel.netlify.app/?Id=" + offSet;
+  }
+
+  async nextPage10(){
+    console.log("Entro no nextPage");    
+    
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var offSet = url.searchParams.get("Id");
+    if (!offSet)
+    {
+      offSet = "1";
+      url_string = url_string + "?Id="
+    }
+    else
+      offSet = offSet + 10;
 
     console.log("*****offSet*****");
     console.log(offSet);
@@ -115,7 +133,7 @@ class App extends Component{
         </div> 
         <p>
           <div align="center">
-            <button key='Previous' onClick={() => this.previousPage()}>Anterior</button> | <button key='Next' onClick={() => this.nextPage()}>Próximo</button>  
+            <button key='Previous' onClick={() => this.previousPage()}>Anterior</button> | <button key='Next' onClick={() => this.nextPage()}>Próximo</button> | <button key='Next10' onClick={() => this.nextPage10()}>Pular 10 personagens</button>
           </div>
         </p>
       </div>

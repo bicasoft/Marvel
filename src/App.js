@@ -33,7 +33,7 @@ class App extends Component{
      this.setState({personagens: response.data});   
    else{
      window.alert("Acabou, Luíza. Vai estudar agora!");
-     window.location.href = "https://capitaluizamarvel.netlify.app/?Id=1561";
+     window.location.href = "http://localhost:3000/?Id=1561";
    }
   }
 
@@ -51,7 +51,7 @@ class App extends Component{
       offSet--;
       console.log("*****offSet*****");
       console.log(offSet);  
-      window.location.href = "https://capitaluizamarvel.netlify.app/?Id=" + offSet;
+      window.location.href = "http://localhost:3000/?Id=" + offSet;
     }
   }
 
@@ -62,26 +62,21 @@ class App extends Component{
     var url = new URL(url_string);
     var offSet = url.searchParams.get("Id");
     if (!offSet)
-    {
       offSet = "1";
-      url_string = url_string + "?Id="
-    }
     else
       offSet++;
-
-    url_string.replace("?Id=", "");
 
     console.log("*****offSet*****");
     console.log(offSet);
   
-    window.location.href = "https://capitaluizamarvel.netlify.app" + offSet;
+    window.location.href = "http://localhost:3000/?Id=" + offSet;
   }
 
   render(){
 
     const { personagens } = this.state;
     const { desc } = this.state;
-    
+    //const { dataOffset } = this.state;
     console.log("vou checar");    
    
     if (personagens.length < 1)

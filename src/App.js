@@ -4,8 +4,7 @@ import api from "./api";
 class App extends Component{
 
   state = {
-    personagens: [],  
-    desc: "",
+    personagens: [],      
   }
 
   async componentDidMount(){
@@ -79,8 +78,7 @@ class App extends Component{
 
   render(){
 
-    const { personagens } = this.state;
-    const { desc } = this.state;
+    const { personagens } = this.state;    
     
     console.log("vou checar");    
    
@@ -110,7 +108,7 @@ class App extends Component{
                 <img src={personagem.thumbnail.path + "/portrait_xlarge." + personagem.thumbnail.extension}></img>
               </p>         
               <p>
-                <b>Description:</b> {desc}
+                <b>Description:</b> {personagem.description}
               </p>
             </div>                          
           ))}

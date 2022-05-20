@@ -75,7 +75,7 @@ class App extends Component{
   }
 
   async nextPage10(){
-    console.log("Entro no nextPage");    
+    console.log("Entro no nextPage10");    
     
     var url_string = window.location.href;
     var url = new URL(url_string);
@@ -86,7 +86,27 @@ class App extends Component{
       url_string = url_string + "?Id="
     }
     else
-      offSet = offSet + 10;
+      offSet = parseInt(offSet) + 10
+
+    console.log("*****offSet*****");
+    console.log(offSet);
+  
+    window.location.href = "https://capitaluizamarvel.netlify.app/?Id=" + offSet;
+  }
+
+  async nextPage50(){
+    console.log("Entro no nextPage50");    
+    
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var offSet = url.searchParams.get("Id");
+    if (!offSet)
+    {
+      offSet = "1";
+      url_string = url_string + "?Id="
+    }
+    else
+      offSet = parseInt(offSet) + 50
 
     console.log("*****offSet*****");
     console.log(offSet);
@@ -133,7 +153,7 @@ class App extends Component{
         </div> 
         <p>
           <div align="center">
-            <button key='Previous' onClick={() => this.previousPage()}>Anterior</button> | <button key='Next' onClick={() => this.nextPage()}>Próximo</button> | <button key='Next10' onClick={() => this.nextPage10()}>Pular 10 personagens</button>
+            <button key='Previous' onClick={() => this.previousPage()}>Anterior</button> | <button key='Next' onClick={() => this.nextPage()}>Próximo</button> | <button key='Next10' onClick={() => this.nextPage10()}>Pular 10 personagens</button> | <button key='Next50' onClick={() => this.nextPage50()}>Pular 50 personagens</button>
           </div>
         </p>
       </div>
